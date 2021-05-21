@@ -1,0 +1,23 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "FS",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon chatbot_v1.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "actions-on-google": "^2.13.0",
+    "dialogflow-fulfillment": "^0.6.1",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.4",
+    "mongoose": "^5.6.4",
+    "randomstring": "^1.1.5"
+  },
+  "devDependencies": {
+    "dotenv": "^8.0.0",
+    "nodemon": "^1.19.1"
+  }
+}
