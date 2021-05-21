@@ -3,7 +3,7 @@ from flask import Flask, render_template, request
 from twilio.rest import Client
 
 account_sid = 'ACd2bb29359d1eb009a8a4dfc011f8b2b1'
-auth_token = '1ac1077e90c625ebc02d2f47c481824a'
+auth_token = '9c679fc7cc2c10c50623d43142ed40d0'
 client = Client(account_sid, auth_token)
 app = Flask(__name__, static_url_path='/static')
 
@@ -32,17 +32,17 @@ def login_registration_dtls():
     travel_pass = ((cnt / pop) * 100)
     if travel_pass < 30 and request.method == 'POST':
         status = 'CONFIRMED'
-        client.messages.create(to="+919133451579",
+        client.messages.create(to=phoneNumber,
                                from_="+18303315111",
-                               body="Hello " + " " + full_name + " " + "Your request for E-pass to  travel from " + " " + source_dt + " to " +
-                                    destination_dt  + "has " +" " + "been" + status + " ")
+                               body="Hello " + " " + full_name + " " + "your request to travel from " + " " + source_dt + " to " +
+                                    destination_dt + " " + "has " + "been" + " " + status)
         return render_template('user_registration_dtls.html', firstname=first_name, lastname=last_name,
                                status="confirmed", email=email_id)
     else:
         status = 'NOT CONFIRMED'
-        client.messages.create(to="+919133451579",
+        client.messages.create(to=phoneNumber,
                                from_="+18303315111",
-                               body="Couldn't process the request. Please Apply later. Sorry for the inconvience caused")
+                               body="Apply later")
         return render_template('user_registration_dtls.html', firstname=first_name, lastname=last_name,
                                status="confirmed", email=email_id)
 
